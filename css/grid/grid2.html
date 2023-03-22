@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .grid {
+            height: 300px;
+            max-height: 300px;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: min-content 1fr ;
+            grid-template-areas:
+                "one two"
+                "one three"
+        }
+
+        .one {
+            background: red;
+            grid-area: one;
+        }
+
+        .two {
+            background: green;
+            grid-area: two;
+        }
+
+        .three {
+            background: blue;
+            grid-area: three;
+        }
+
+        .three-child {
+            height: 100%;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid">
+        <div class="one">
+            One
+        </div>
+        <div class="two">
+            Two
+        </div>
+        <div class="three">
+            <div class="three-child">
+                Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>
+                Three<br/>Three<br/>Three<br/>Three<br/>
+                Three<br/>Three<br/>Three<br/>Three<br/>
+                Three<br/>Three<br/>Three<br/>Three<br/>
+                Three<br/>Three<br/>Three<br/>Three<br/>
+                Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>Three<br/>
+                Three<br/>Three<br/>Three<br/>Three<br/>
+                Three<br/>Three<br/>Three<br/>Three<br/>
+                Three<br/>Three<br/>Three<br/>Three<br/>
+                Three<br/>Three<br/>Three<br/>Three<br/>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
