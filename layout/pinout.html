@@ -1,0 +1,115 @@
+<html>
+
+<head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .parent {
+            width: 500px;
+            height: 500px;
+            left: 100px;
+            top: 100px;
+            position: relative;
+            border: 1px solid black;
+        }
+
+        .div1 {
+            position: absolute;
+            width: 100px;
+            background-color: green;
+            transform: rotate(-90deg) translate(-100px, 0);
+            transform-origin: 0 0;
+        }
+
+        .div2 {
+            position: absolute;
+            width: 100px;
+            background-color: blue;
+            transform: rotate(0deg) translate(400px, 0);
+            transform-origin: 0 0;
+        }
+
+
+        .div3 {
+            position: absolute;
+            width: 100px;
+            background-color: red;
+            transform: rotate(90deg) translate(400px, -500px);
+            transform-origin: 0 0;
+        }
+
+        .div4 {
+            position: absolute;
+            width: 100px;
+            background-color: brown;
+            transform: rotate(180deg) translate(-100px, -500px);
+            transform-origin: 0 0;
+        }
+
+        .div4>* {
+            transform: rotate(180deg);
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="div1">
+            <div>111</div>
+            <div>一二三</div>
+            <div>111</div>
+            <div>111</div>
+            <div>111</div>
+            <div>111</div>
+            <div>111</div>
+            <div>111</div>
+            <div>111</div>
+        </div>
+        <div class="div2">
+            <div>222</div>
+            <div>222</div>
+            <div>222</div>
+            <div>222</div>
+            <div>222</div>
+            <div>222</div>
+            <div>222</div>
+            <div>222</div>
+            <div>222</div>
+            <div>222</div>
+        </div>
+        <div class="div3">
+            <div>111</div>
+            <div>222</div>
+            <div>333</div>
+            <div>444</div>
+            <div>333</div>
+            <div>333</div>
+            <div>333</div>
+            <div>333</div>
+            <div>333</div>
+            <div>333</div>
+            <div>333</div>
+            <div>333</div>
+        </div>
+        <div class="div4">
+            <div>1111</div>
+            <div>2222</div>
+            <div>3333</div>
+            <div>4444</div>
+            <div>55555</div>
+            <div>4446666666</div>
+            <div>44477777</div>
+            <div>4448888</div>
+            <div>44499</div>
+            <div>444</div>
+            <div>444</div>
+            <div>444</div>
+        </div>
+    </div>
+</body>
+
+</html>
