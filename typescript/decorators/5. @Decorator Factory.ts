@@ -1,16 +1,3 @@
-// need tsconfig.json
-/**
-{
-    "compilerOptions": {
-        "noImplicitAny": false,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "target": "ES5"
-    }
-}
-*/
-
-
 function logTime(tag) { // 这是一个装饰器工厂函数，带参数的装饰器
 
     return function(target, key, descriptor) {  // 这是装饰器

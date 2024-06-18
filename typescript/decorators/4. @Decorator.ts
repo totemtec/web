@@ -1,30 +1,16 @@
-// need tsconfig.json
-/**
-{
-    "compilerOptions": {
-        "noImplicitAny": false,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
-        "target": "ES5"
-    }
-}
-*/
-
-
 // Step2 编写装饰器函数业务逻辑
-function logTime(target, key, descriptor) {
-    const oldMehtod = descriptor.value
-    const lotTime = function(...args) {
-        let start = +new Date()
-        try {
-            return oldMehtod.apply(this, args) //调用之前的函数
-        } finally {
-            let end = +new Date()
-            console.log(`time: ${end - start}ms`)
+function logTime(target: Function, context) {
+    if (context.kind === "method") {
+        return function (...args: any[]) {
+            let start = +new Date()
+            try {
+                return target.apply(this, args)
+            } finally {
+                let end = +new Date()
+                console.log(`time: ${end - start}ms`)
+            }
         }
     }
-    descriptor.value = oldMehtod
-    return descriptor
 }
 
 class Dog {
