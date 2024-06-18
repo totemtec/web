@@ -1,20 +1,18 @@
 function logTime(tag) { // 这是一个装饰器工厂函数，带参数的装饰器
-
-    return function(target, key, descriptor) {  // 这是装饰器
-      const oldMethed = descriptor.value
-      const logTime = function (...arg) {
-        let start = +new Date()
-        try {
-          return oldMethed.apply(this, arg)
-        } finally {
-          let end = +new Date()
-          console.log(`[${tag}] time: ${end - start}ms`)
+    return function logTime(target: Function, context) {
+        if (context.kind === "method") {
+            return function (...args: any[]) {
+                let start = +new Date()
+                try {
+                    return target.apply(this, args)
+                } finally {
+                    let end = +new Date()
+                    console.log(`[${tag}] time: ${end - start}ms`)
+                }
+            }
         }
-      }
-      descriptor.value = logTime
-      return descriptor
     }
-  }
+}
 
 class Dog {
     @logTime('Attack')
