@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Custom Bar Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js">
+  </script>
+</head>
+
+<body>
+  <canvas id="myChart" width="550px" height="550px">
+  </canvas>
+
+  <script type="text/javascript">
+
+    class Custom extends Chart.BubbleController {
+      draw() {
+        // Call bubble controller method to draw all the points
+        // super.draw(arguments);
+
+        // Now we can do some custom drawing for this dataset. Here we'll draw a red box around the first point in each dataset
+        const meta = this.getMeta();
+
+        const ctx = this.chart.ctx;
+        ctx.save();
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 1;
+
+        for (const pt of meta.data) {
+          const { x, y } = pt.getProps(['x', 'y']);
+          const { radius } = pt.options;
+
+          ctx.strokeRect(x - radius, y - radius, 2 * radius, 2 * radius);
+        }
+
+        ctx.restore();
+      }
+    };
+    Custom.id = 'derivedBubble';
+    Custom.defaults = Chart.BubbleController.defaults;
+
+    Chart.register(Custom);
+
+    const data = {
+      datasets: [{
+        data: [{
+          x: 20,
+          y: 30,
+          r: 15
+        }, {
+          x: 40,
+          y: 10,
+          r: 10
+        }]
+      }]
+    };
+
+    const ctx = document.getElementById('myChart');
+    new Chart(ctx, {
+      type: 'derivedBubble',
+      data: data
+    });
+  </script>
+</body>
+
+</html>
