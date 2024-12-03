@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Custom Bar Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js">
+    </script>
+</head>
+
+<body>
+    <canvas id="myChart" width="550px" height="550px">
+    </canvas>
+
+    <script type="text/javascript">
+
+        const data = {
+            datasets: [{
+                label: '馒头数量',
+                data: [20, 10],
+            }],
+            labels: ['1月', '2月']
+        };
+
+        const options = {
+            indexAxis: 'y',
+        }
+        
+        const config = {
+            type: 'bar',
+            data,
+            options
+        }
+
+        const ctx = document.getElementById('myChart');
+        new Chart(ctx, config);
+    </script>
+</body>
+
+</html>

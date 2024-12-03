@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Positioning context</title>
+
+    <style>
+      body {
+        width: 500px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      div {
+        background: aqua;
+        margin: 50px;
+      }
+
+      .positioned {
+        position: absolute;
+        background: yellow;
+        left: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Positioning context</h1>
+
+    <div>I am a basic block level element. My adjacent block level elements sit on new lines below me.</div>
+
+    <div class="positioned">Now I'm absolutely positioned relative to the <code>&lt;body&gt;</code> element, not the <code>&lt;html&gt;</code> element!</div>
+
+    <div>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</div>
+
+    <div>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</div>
+
+  </body>
+</html>
